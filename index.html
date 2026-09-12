@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Snack Shack student lunch-time snack club menu">
+  <title>Snack Shack</title>
+</head>
+<body>
+<div id="snack-shack-menu">
+  <style>
+    #snack-shack-menu {
+      --ss-ink: #292623;
+      --ss-muted: #746d62;
+      --ss-wood: #f5ead8;
+      --ss-paper: #fffaf1;
+      --ss-tan: #caa979;
+      --ss-tan-dark: #a5804f;
+      --ss-red: #ae3e35;
+      --ss-red-dark: #88312c;
+      --ss-yellow: #f2c85e;
+      --ss-green: #48694c;
+      width: 100%;
+      overflow: visible;
+      color: var(--ss-ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--ss-wood);
+      background-image:
+        repeating-linear-gradient(0deg, rgba(133, 93, 43, .045) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .16) 0 2px, transparent 2px 22px),
+        radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, .45), transparent 35%);
+      border: 1px solid rgba(115, 75, 27, .17);
+      border-radius: 20px;
+      box-shadow: 0 18px 55px rgba(77, 49, 22, .15);
+    }
+
+    #snack-shack-menu * { box-sizing: border-box; }
+    #snack-shack-menu button { font: inherit; }
+    #snack-shack-menu .ss-window { max-width: 1180px; margin: 0 auto; padding: 0 30px 30px; }
+    #snack-shack-menu .ss-banner { position: relative; margin: 0 -30px; padding: 0 30px; background: var(--ss-paper); }
+    #snack-shack-menu .ss-awning { height: 48px; background: repeating-linear-gradient(90deg, var(--ss-red) 0 58px, #fff7e9 58px 116px); border-bottom: 4px solid rgba(114, 71, 28, .18); position: relative; }
+    #snack-shack-menu .ss-awning::after { position: absolute; right: 0; bottom: -16px; left: 0; height: 22px; content: ""; background: radial-gradient(24px 16px at 24px 0, transparent 23px, var(--ss-red) 24px) 0 0 / 48px 22px repeat-x; }
+    #snack-shack-menu .ss-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1120px; margin: 0 auto; padding: 43px 23px 27px; }
+    #snack-shack-menu .ss-brand { display: flex; align-items: center; gap: 12px; color: var(--ss-ink); }
+    #snack-shack-menu .ss-mark { display: grid; width: 38px; height: 38px; place-items: center; color: #fff8ed; background: var(--ss-red); border: 2px solid var(--ss-red-dark); border-radius: 50%; font-size: 19px; transform: rotate(-8deg); }
+    #snack-shack-menu .ss-brand-copy { display: grid; gap: 2px; }
+    #snack-shack-menu .ss-brand-name { font-size: 30px; font-weight: 800; letter-spacing: -.055em; line-height: 1; }
+    #snack-shack-menu .ss-brand-subtitle { color: var(--ss-muted); font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    #snack-shack-menu .ss-speed-note { display: flex; align-items: center; gap: 8px; padding: 10px 13px; color: var(--ss-red-dark); background: #fff0d3; border: 1px solid #e0bf83; border-radius: 7px; font-size: 12px; font-weight: 800; white-space: nowrap; }
+    #snack-shack-menu .ss-speed-note span { font-size: 15px; }
+    #snack-shack-menu .ss-content { padding-top: 36px; }
+    #snack-shack-menu .ss-hero { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 31px; padding: 24px 27px 25px; background: rgba(255, 250, 241, .79); border: 2px solid var(--ss-tan); border-left: 8px solid var(--ss-red); border-radius: 9px; box-shadow: 0 4px 0 rgba(128, 89, 39, .08); }
+    #snack-shack-menu .ss-hero-copy { max-width: 640px; margin: 0; color: var(--ss-ink); font-size: clamp(16px, 2.2vw, 22px); font-weight: 700; letter-spacing: -.025em; line-height: 1.3; }
+    #snack-shack-menu .ss-kicker { margin: 0 0 7px; color: var(--ss-red-dark); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    #snack-shack-menu .ss-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
+    #snack-shack-menu .ss-heading h1 { margin: 0; color: var(--ss-ink); font-family: Georgia, serif; font-size: clamp(37px, 5vw, 57px); letter-spacing: -.07em; line-height: .96; }
+    #snack-shack-menu .ss-today { color: var(--ss-muted); font-size: 12px; font-weight: 700; white-space: nowrap; }
+    #snack-shack-menu .ss-sale { display: flex; align-items: center; gap: 11px; margin-bottom: 27px; padding: 11px 14px; color: var(--ss-ink); background: var(--ss-yellow); border-left: 5px solid var(--ss-red); box-shadow: 0 3px 0 rgba(132, 84, 32, .12); font-size: 13px; font-weight: 700; }
+    #snack-shack-menu .ss-sale strong { color: var(--ss-red-dark); }
+    #snack-shack-menu .ss-category { margin-top: 26px; scroll-margin-top: 20px; }
+    #snack-shack-menu .ss-category:first-of-type { margin-top: 0; }
+    #snack-shack-menu .ss-category-heading { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+    #snack-shack-menu .ss-category + .ss-category { margin-top: 48px; padding-top: 30px; border-top: 2px solid rgba(165, 128, 79, .38); }
+    #snack-shack-menu .ss-category-heading h2 { margin: 0; color: var(--ss-ink); font-size: 22px; letter-spacing: -.02em; }
+    #snack-shack-menu .ss-category-heading span { color: var(--ss-muted); font-size: 11px; }
+    #snack-shack-menu .ss-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+    #snack-shack-menu .ss-product { display: block; min-width: 0; padding: 0; overflow: hidden; color: inherit; text-align: left; background: var(--ss-paper); border: 2px solid var(--ss-tan); border-radius: 8px; box-shadow: 0 5px 0 rgba(128, 89, 39, .08); cursor: pointer; }
+    #snack-shack-menu .ss-product:hover { border-color: var(--ss-red); box-shadow: 0 6px 0 rgba(128, 89, 39, .1); }
+    #snack-shack-menu .ss-product:focus-visible { outline: 3px solid #315fa8; outline-offset: 3px; }
+    #snack-shack-menu .ss-product.is-selected { border-color: var(--ss-red-dark); box-shadow: 0 0 0 3px rgba(174, 62, 53, .14), 0 6px 0 rgba(128, 89, 39, .1); }
+    #snack-shack-menu .ss-picture { display: grid; height: 178px; place-items: center; overflow: hidden; position: relative; font-size: 67px; line-height: 1; }
+    #snack-shack-menu .ss-picture::before { position: absolute; right: -22px; bottom: -54px; width: 142px; height: 142px; border: 1px solid rgba(255, 255, 255, .32); border-radius: 50%; content: ""; }
+    #snack-shack-menu .ss-picture span:first-child { z-index: 1; filter: drop-shadow(0 7px 4px rgba(79, 49, 23, .2)); }
+    #snack-shack-menu .ss-burger { background: #d9a66e; }
+    #snack-shack-menu .ss-chicken { background: #edb46f; }
+    #snack-shack-menu .ss-nachos { background: #e9bd68; }
+    #snack-shack-menu .ss-fries { background: #e2a457; }
+    #snack-shack-menu .ss-lemonade { background: #e6d36e; }
+    #snack-shack-menu .ss-shake { background: #b98d78; }
+    #snack-shack-menu .ss-cookie { background: #b6805f; }
+    #snack-shack-menu .ss-cheese { background: #e89865; }
+    #snack-shack-menu .ss-badge { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 5px 7px; color: #fff8ee; background: var(--ss-red); border-radius: 4px; font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    #snack-shack-menu .ss-item-info { display: flex; min-height: 118px; flex-direction: column; padding: 14px 14px 12px; }
+    #snack-shack-menu .ss-item-info h3 { margin: 0 0 4px; color: var(--ss-ink); font-size: 14px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+    #snack-shack-menu .ss-item-note { display: flex; align-items: center; gap: 5px; margin: 0; color: var(--ss-muted); font-size: 11px; line-height: 1.35; }
+    #snack-shack-menu .ss-description-picture { display: inline-grid; width: 21px; height: 21px; flex: 0 0 auto; place-items: center; border-radius: 4px; background: #f3dfb8; font-size: 14px; line-height: 1; }
+    #snack-shack-menu .ss-price { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 10px; }
+    #snack-shack-menu .ss-price strong { color: var(--ss-red-dark); font-size: 16px; letter-spacing: -.04em; }
+    #snack-shack-menu .ss-price span { color: var(--ss-green); font-size: 9px; font-weight: 800; text-transform: uppercase; }
+    #snack-shack-menu .ss-detail { display: grid; grid-template-columns: auto 1fr auto; gap: 15px; align-items: center; margin-top: 29px; padding: 17px 19px; background: rgba(255, 250, 241, .87); border: 2px solid var(--ss-tan); border-radius: 8px; }
+    #snack-shack-menu .ss-detail-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 7px; background: var(--ss-yellow); font-size: 24px; }
+    #snack-shack-menu .ss-detail-label { margin: 0 0 3px; color: var(--ss-red-dark); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    #snack-shack-menu .ss-detail-name { margin: 0; color: var(--ss-ink); font-size: 16px; font-weight: 800; }
+    #snack-shack-menu .ss-detail-note { margin: 3px 0 0; color: var(--ss-muted); font-size: 11px; }
+    #snack-shack-menu .ss-detail-price { color: var(--ss-red-dark); font-size: 21px; font-weight: 900; white-space: nowrap; }
+    #snack-shack-menu .ss-info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+    #snack-shack-menu .ss-info-box { padding: 17px 18px; background: rgba(255, 250, 241, .75); border-top: 4px solid var(--ss-red); border-radius: 6px; }
+    #snack-shack-menu .ss-info-box h2 { margin: 0 0 5px; color: var(--ss-ink); font-size: 14px; }
+    #snack-shack-menu .ss-info-box p { margin: 0; color: var(--ss-muted); font-size: 12px; line-height: 1.45; }
+    #snack-shack-menu .ss-info-box strong { color: var(--ss-ink); }
+    #snack-shack-menu .ss-footer { display: flex; justify-content: space-between; padding-top: 27px; color: var(--ss-muted); font-size: 10px; }
+
+    @media (max-width: 900px) {
+      #snack-shack-menu .ss-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #snack-shack-menu .ss-picture { height: 205px; }
+    }
+    @media (max-width: 580px) {
+      #snack-shack-menu .ss-window { padding: 0 15px 22px; }
+      #snack-shack-menu .ss-banner { margin: 0 -15px; padding: 0 15px; }
+      #snack-shack-menu .ss-banner-inner { display: block; padding: 41px 12px 24px; }
+      #snack-shack-menu .ss-brand-name { font-size: 27px; }
+      #snack-shack-menu .ss-speed-note { display: inline-flex; margin-top: 17px; font-size: 11px; }
+      #snack-shack-menu .ss-content { padding-top: 29px; }
+      #snack-shack-menu .ss-hero { display: block; margin-bottom: 27px; padding: 20px 19px 21px; }
+      #snack-shack-menu .ss-hero-copy { font-size: 17px; }
+      #snack-shack-menu .ss-heading { display: block; }
+      #snack-shack-menu .ss-today { display: block; margin-top: 10px; }
+      #snack-shack-menu .ss-sale { align-items: flex-start; line-height: 1.35; }
+      #snack-shack-menu .ss-category + .ss-category { margin-top: 32px; padding-top: 24px; }
+      #snack-shack-menu .ss-grid { grid-template-columns: 1fr 1fr; gap: 13px; }
+      #snack-shack-menu .ss-picture { height: 150px; font-size: 50px; }
+      #snack-shack-menu .ss-item-info { min-height: 112px; padding: 10px 9px 9px; }
+      #snack-shack-menu .ss-item-info h3 { font-size: 12px; }
+      #snack-shack-menu .ss-item-note { font-size: 9px; }
+      #snack-shack-menu .ss-description-picture { width: 18px; height: 18px; font-size: 12px; }
+      #snack-shack-menu .ss-price strong { font-size: 14px; }
+      #snack-shack-menu .ss-price span { font-size: 8px; }
+      #snack-shack-menu .ss-detail { grid-template-columns: auto 1fr; gap: 11px; padding: 14px; }
+      #snack-shack-menu .ss-detail-price { grid-column: 2; font-size: 18px; }
+      #snack-shack-menu .ss-info-row { grid-template-columns: 1fr; gap: 11px; margin-top: 22px; }
+      #snack-shack-menu .ss-footer { display: block; line-height: 1.8; }
+      #snack-shack-menu .ss-footer span { display: block; }
+    }
+  </style>
+
+  <div class="ss-window">
+    <header class="ss-banner">
+      <div class="ss-awning" aria-hidden="true"></div>
+      <div class="ss-banner-inner">
+        <div class="ss-brand">
+          <span class="ss-mark" aria-hidden="true">✦</span>
+          <span class="ss-brand-copy"><span class="ss-brand-name">Snack Shack</span><span class="ss-brand-subtitle">Student lunch-time snack club</span></span>
+        </div>
+        <div class="ss-speed-note"><span aria-hidden="true">⚡</span> Fast, simple, affordable</div>
+      </div>
+    </header>
+
+    <main class="ss-content">
+      <section class="ss-hero" aria-labelledby="ss-hero-copy">
+        <p class="ss-hero-copy" id="ss-hero-copy">Quick snacks for a short lunch break. Find sandwiches, treats, and drinks in Room 214.</p>
+      </section>
+
+      <div class="ss-heading">
+        <div><p class="ss-kicker">No waiting around</p><h1>Today's menu</h1></div>
+        <div class="ss-today">Saturday · September 12, 2026</div>
+      </div>
+
+      <div class="ss-sale"><span aria-hidden="true">★</span><span><strong>Today's sale:</strong> 2 chocolate chip cookies for $5.</span></div>
+
+      <section class="ss-category" id="ss-menu-list" aria-labelledby="ss-savory-heading">
+        <div class="ss-category-heading"><h2 id="ss-savory-heading">Savory snacks</h2><span>Tap an item for stock + price</span></div>
+        <div class="ss-grid">
+          <button class="ss-product is-selected" type="button" aria-pressed="true" data-name="Classic Cheeseburger" data-price="$8.50" data-stock="In stock" data-note="American cheese, crisp lettuce &amp; house sauce" data-emoji="🍔" aria-label="Classic Cheeseburger, 8 dollars 50 cents, in stock">
+            <span class="ss-picture ss-burger" role="img" aria-label="Classic cheeseburger picture"><span>🍔</span><span class="ss-badge">Popular</span></span>
+            <span class="ss-item-info"><span><h3>Classic Cheeseburger</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍔</span><span>Cheese, lettuce &amp; house sauce</span></p></span><span class="ss-price"><strong>$8.50</strong><span>In stock</span></span></span>
+          </button>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Crispy Chicken Sandwich" data-price="$8.00" data-stock="In stock" data-note="Crunchy chicken, tangy slaw &amp; chili honey" data-emoji="🍗" aria-label="Crispy Chicken Sandwich, 8 dollars, in stock">
+            <span class="ss-picture ss-chicken" role="img" aria-label="Crispy chicken sandwich picture"><span>🍗</span><span class="ss-badge">New</span></span>
+            <span class="ss-item-info"><span><h3>Crispy Chicken Sandwich</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍗</span><span>Chicken, slaw &amp; chili honey</span></p></span><span class="ss-price"><strong>$8.00</strong><span>In stock</span></span></span>
+          </button>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Loaded Nachos" data-price="$6.50" data-stock="In stock" data-note="Cheddar, pico de gallo, jalapeño &amp; lime crema" data-emoji="🌮" aria-label="Loaded Nachos, 6 dollars 50 cents, in stock">
+            <span class="ss-picture ss-nachos" role="img" aria-label="Loaded nachos picture"><span>🌮</span></span>
+            <span class="ss-item-info"><span><h3>Loaded Nachos</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🌮</span><span>Cheddar, pico &amp; jalapeño</span></p></span><span class="ss-price"><strong>$6.50</strong><span>In stock</span></span></span>
+          </button>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Sea Salt Fries" data-price="$3.50" data-stock="Low stock" data-note="Golden fries with signature shack seasoning" data-emoji="🍟" aria-label="Sea Salt Fries, 3 dollars 50 cents, low stock">
+            <span class="ss-picture ss-fries" role="img" aria-label="Sea salt fries picture"><span>🍟</span><span class="ss-badge">Low stock</span></span>
+            <span class="ss-item-info"><span><h3>Sea Salt Fries</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍟</span><span>Golden fries, shack seasoning</span></p></span><span class="ss-price"><strong>$3.50</strong><span>Low stock</span></span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="ss-category" aria-labelledby="ss-treats-heading">
+        <div class="ss-category-heading"><h2 id="ss-treats-heading">Drinks &amp; treats</h2><span>Quick picks for your break</span></div>
+        <div class="ss-grid">
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Fresh Lemonade" data-price="$3.00" data-stock="In stock" data-note="Bright, cold &amp; squeezed this morning" data-emoji="🍋" aria-label="Fresh Lemonade, 3 dollars, in stock">
+            <span class="ss-picture ss-lemonade" role="img" aria-label="Fresh lemonade picture"><span>🍋</span></span>
+            <span class="ss-item-info"><span><h3>Fresh Lemonade</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍋</span><span>Cold &amp; squeezed this morning</span></p></span><span class="ss-price"><strong>$3.00</strong><span>In stock</span></span></span>
+          </button>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Chocolate Shake" data-price="$4.50" data-stock="In stock" data-note="Thick, creamy &amp; topped with whipped cream" data-emoji="🥤" aria-label="Chocolate Shake, 4 dollars 50 cents, in stock">
+            <span class="ss-picture ss-shake" role="img" aria-label="Chocolate shake picture"><span>🥤</span></span>
+            <span class="ss-item-info"><span><h3>Chocolate Shake</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🥤</span><span>Thick, creamy &amp; cold</span></p></span><span class="ss-price"><strong>$4.50</strong><span>In stock</span></span></span>
+          </button>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Chocolate Chip Cookie" data-price="$3.00" data-stock="In stock" data-note="Soft-baked, gooey &amp; still warm; sale price is 2 for $5" data-emoji="🍪" aria-label="Chocolate Chip Cookie, 3 dollars, in stock, two for 5 dollars sale">
+            <span class="ss-picture ss-cookie" role="img" aria-label="Chocolate chip cookie picture"><span>🍪</span><span class="ss-badge">Sale</span></span>
+            <span class="ss-item-info"><span><h3>Chocolate Chip Cookie</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍪</span><span>Warm, soft-baked &amp; gooey</span></p></span><span class="ss-price"><strong>$3.00</strong><span>In stock</span></span></span>
+          </button>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Grilled Cheese" data-price="$6.00" data-stock="Sold out" data-note="Three-cheese melt on buttery sourdough" data-emoji="🥪" aria-label="Grilled Cheese, 6 dollars, sold out">
+            <span class="ss-picture ss-cheese" role="img" aria-label="Grilled cheese picture"><span>🥪</span><span class="ss-badge">Sold out</span></span>
+            <span class="ss-item-info"><span><h3>Grilled Cheese</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🥪</span><span>Three-cheese melt on sourdough</span></p></span><span class="ss-price"><strong>$6.00</strong><span>Sold out</span></span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="ss-detail" aria-live="polite" aria-label="Selected menu item details">
+        <div class="ss-detail-icon" aria-hidden="true"><span class="ss-detail-emoji">🍔</span></div>
+        <div><p class="ss-detail-label">Selected item</p><h2 class="ss-detail-name">Classic Cheeseburger</h2><p class="ss-detail-note">American cheese, crisp lettuce &amp; house sauce · <strong class="ss-detail-stock">In stock</strong></p></div>
+        <strong class="ss-detail-price">$8.50</strong>
+      </section>
+
+      <div class="ss-info-row">
+        <section class="ss-info-box" aria-labelledby="ss-pickup-title"><h2 id="ss-pickup-title">Pickup</h2><p><strong>Pick up at Room 214, 12:15–12:45 PM.</strong></p></section>
+        <section class="ss-info-box" aria-labelledby="ss-location-title"><h2 id="ss-location-title">Where is Snack Shack?</h2><p>Inside <strong>Room 214</strong> — look for the red-and-white awning.</p></section>
+      </div>
+    </main>
+
+    <footer class="ss-footer"><span>Snack Shack · Student-run</span><span>Club made by Mia</span><span>Prices shown in USD</span></footer>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.getElementById("snack-shack-menu");
+      const products = root.querySelectorAll(".ss-product");
+      const detailEmoji = root.querySelector(".ss-detail-emoji");
+      const detailName = root.querySelector(".ss-detail-name");
+      const detailNote = root.querySelector(".ss-detail-note");
+      const detailStock = root.querySelector(".ss-detail-stock");
+      const detailPrice = root.querySelector(".ss-detail-price");
+
+      const showProduct = (product) => {
+        products.forEach((item) => {
+          const selected = item === product;
+          item.classList.toggle("is-selected", selected);
+          item.setAttribute("aria-pressed", String(selected));
+        });
+        detailEmoji.textContent = product.dataset.emoji;
+        detailName.textContent = product.dataset.name;
+        detailNote.firstChild.textContent = product.dataset.note + " · ";
+        detailStock.textContent = product.dataset.stock;
+        detailPrice.textContent = product.dataset.price;
+      };
+
+      products.forEach((product) => product.addEventListener("click", () => showProduct(product)));
+      showProduct(products[0]);
+    })();
+  </script>
+</div>
+
+
+</body>
+</html>
