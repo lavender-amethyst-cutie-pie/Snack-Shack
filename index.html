@@ -69,27 +69,20 @@
     #snack-shack-menu .ss-product:hover { border-color: var(--ss-red); box-shadow: 0 6px 0 rgba(128, 89, 39, .1); }
     #snack-shack-menu .ss-product:focus-visible { outline: 3px solid #315fa8; outline-offset: 3px; }
     #snack-shack-menu .ss-product.is-selected { border-color: var(--ss-red-dark); box-shadow: 0 0 0 3px rgba(174, 62, 53, .14), 0 6px 0 rgba(128, 89, 39, .1); }
-    #snack-shack-menu .ss-picture { display: grid; height: 178px; place-items: center; overflow: hidden; position: relative; font-size: 67px; line-height: 1; }
+    #snack-shack-menu .ss-picture { display: grid; height: 178px; place-items: center; overflow: hidden; position: relative; background: #f3dfb8; line-height: 1; }
     #snack-shack-menu .ss-picture::before { position: absolute; right: -22px; bottom: -54px; width: 142px; height: 142px; border: 1px solid rgba(255, 255, 255, .32); border-radius: 50%; content: ""; }
-    #snack-shack-menu .ss-picture span:first-child { z-index: 1; filter: drop-shadow(0 7px 4px rgba(79, 49, 23, .2)); }
-    #snack-shack-menu .ss-burger { background: #d9a66e; }
-    #snack-shack-menu .ss-chicken { background: #edb46f; }
-    #snack-shack-menu .ss-nachos { background: #e9bd68; }
-    #snack-shack-menu .ss-fries { background: #e2a457; }
-    #snack-shack-menu .ss-lemonade { background: #e6d36e; }
-    #snack-shack-menu .ss-shake { background: #b98d78; }
-    #snack-shack-menu .ss-cookie { background: #b6805f; }
-    #snack-shack-menu .ss-cheese { background: #e89865; }
+    #snack-shack-menu .ss-picture img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; padding: 12px; object-fit: contain; filter: drop-shadow(0 7px 4px rgba(79, 49, 23, .2)); }
     #snack-shack-menu .ss-badge { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 5px 7px; color: #fff8ee; background: var(--ss-red); border-radius: 4px; font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
     #snack-shack-menu .ss-item-info { display: flex; min-height: 118px; flex-direction: column; padding: 14px 14px 12px; }
     #snack-shack-menu .ss-item-info h3 { margin: 0 0 4px; color: var(--ss-ink); font-family: var(--ss-display); font-size: 14px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
     #snack-shack-menu .ss-item-note { display: flex; align-items: center; gap: 5px; margin: 0; color: var(--ss-muted); font-size: 11px; line-height: 1.35; }
-    #snack-shack-menu .ss-description-picture { display: inline-grid; width: 21px; height: 21px; flex: 0 0 auto; place-items: center; border-radius: 4px; background: #f3dfb8; font-size: 14px; line-height: 1; }
+    #snack-shack-menu .ss-description-picture { display: block; width: 21px; height: 21px; flex: 0 0 auto; object-fit: contain; border-radius: 4px; background: #f3dfb8; }
     #snack-shack-menu .ss-price { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 10px; }
     #snack-shack-menu .ss-price strong { color: var(--ss-red-dark); font-size: 16px; letter-spacing: -.04em; }
     #snack-shack-menu .ss-price span { color: var(--ss-green); font-size: 9px; font-weight: 800; text-transform: uppercase; }
     #snack-shack-menu .ss-detail { display: grid; grid-template-columns: auto 1fr auto; gap: 15px; align-items: center; margin-top: 29px; padding: 17px 19px; background: rgba(255, 250, 241, .87); border: 2px solid var(--ss-tan); border-radius: 8px; }
-    #snack-shack-menu .ss-detail-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 7px; background: var(--ss-yellow); font-size: 24px; }
+    #snack-shack-menu .ss-detail-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 7px; background: var(--ss-yellow); }
+    #snack-shack-menu .ss-detail-icon img { display: block; width: 100%; height: 100%; padding: 4px; object-fit: contain; }
     #snack-shack-menu .ss-detail-label { margin: 0 0 3px; color: var(--ss-red-dark); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     #snack-shack-menu .ss-detail-name { margin: 0; color: var(--ss-ink); font-family: var(--ss-display); font-size: 16px; font-weight: 700; }
     #snack-shack-menu .ss-detail-note { margin: 3px 0 0; color: var(--ss-muted); font-size: 11px; }
@@ -118,7 +111,7 @@
       #snack-shack-menu .ss-today { display: block; margin-top: 10px; }
       #snack-shack-menu .ss-category + .ss-category { margin-top: 32px; padding-top: 24px; }
       #snack-shack-menu .ss-grid { grid-template-columns: 1fr 1fr; gap: 13px; }
-      #snack-shack-menu .ss-picture { height: 150px; font-size: 50px; }
+      #snack-shack-menu .ss-picture { height: 150px; }
       #snack-shack-menu .ss-item-info { min-height: 112px; padding: 10px 9px 9px; }
       #snack-shack-menu .ss-item-info h3 { font-size: 12px; }
       #snack-shack-menu .ss-item-note { font-size: 9px; }
@@ -155,53 +148,53 @@
         <div class="ss-today">Saturday · September 12, 2026</div>
       </div>
 
-      <section class="ss-category" id="ss-menu-list" aria-labelledby="ss-savory-heading">
-        <div class="ss-category-heading"><h2 id="ss-savory-heading">Savory snacks</h2></div>
+      <section class="ss-category" id="ss-menu-list" aria-labelledby="ss-chips-heading">
+        <div class="ss-category-heading"><h2 id="ss-chips-heading">Chips &amp; snacks</h2></div>
         <div class="ss-grid">
-          <button class="ss-product is-selected" type="button" aria-pressed="true" data-name="Classic Cheeseburger" data-price="$8.50" data-stock="In stock" data-note="American cheese, crisp lettuce &amp; house sauce" data-emoji="🍔" aria-label="Classic Cheeseburger, 8 dollars 50 cents, in stock">
-            <span class="ss-picture ss-burger" role="img" aria-label="Classic cheeseburger picture"><span>🍔</span></span>
-            <span class="ss-item-info"><span><h3>Classic Cheeseburger</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍔</span><span>Cheese, lettuce &amp; house sauce</span></p></span><span class="ss-price"><strong>$8.50</strong><span>In stock</span></span></span>
+          <button class="ss-product is-selected" type="button" aria-pressed="true" data-name="Doritos" data-price="$8.50" data-stock="In stock" data-note="Cool Ranch tortilla chips" data-image="images/doritos.png" data-image-alt="Doritos Cool Ranch tortilla chips" aria-label="Doritos, 8 dollars 50 cents, in stock">
+            <span class="ss-picture" role="img" aria-label="Doritos Cool Ranch tortilla chips"><img src="images/doritos.png" alt=""></span>
+            <span class="ss-item-info"><span><h3>Doritos</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/doritos.png" alt=""><span>Cool Ranch tortilla chips</span></p></span><span class="ss-price"><strong>$8.50</strong><span>In stock</span></span></span>
           </button>
-          <button class="ss-product" type="button" aria-pressed="false" data-name="Crispy Chicken Sandwich" data-price="$8.00" data-stock="In stock" data-note="Crunchy chicken, tangy slaw &amp; chili honey" data-emoji="🍗" aria-label="Crispy Chicken Sandwich, 8 dollars, in stock">
-            <span class="ss-picture ss-chicken" role="img" aria-label="Crispy chicken sandwich picture"><span>🍗</span></span>
-            <span class="ss-item-info"><span><h3>Crispy Chicken Sandwich</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍗</span><span>Chicken, slaw &amp; chili honey</span></p></span><span class="ss-price"><strong>$8.00</strong><span>In stock</span></span></span>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Hot Cheetos" data-price="$8.00" data-stock="In stock" data-note="Flamin' hot cheese snacks" data-image="images/hot_cheeto.webp" data-image-alt="Hot Cheetos cheese snacks" aria-label="Hot Cheetos, 8 dollars, in stock">
+            <span class="ss-picture" role="img" aria-label="Hot Cheetos cheese snacks"><img src="images/hot_cheeto.webp" alt=""></span>
+            <span class="ss-item-info"><span><h3>Hot Cheetos</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/hot_cheeto.webp" alt=""><span>Flamin' hot cheese snacks</span></p></span><span class="ss-price"><strong>$8.00</strong><span>In stock</span></span></span>
           </button>
-          <button class="ss-product" type="button" aria-pressed="false" data-name="Loaded Nachos" data-price="$6.50" data-stock="In stock" data-note="Cheddar, pico de gallo, jalapeño &amp; lime crema" data-emoji="🌮" aria-label="Loaded Nachos, 6 dollars 50 cents, in stock">
-            <span class="ss-picture ss-nachos" role="img" aria-label="Loaded nachos picture"><span>🌮</span></span>
-            <span class="ss-item-info"><span><h3>Loaded Nachos</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🌮</span><span>Cheddar, pico &amp; jalapeño</span></p></span><span class="ss-price"><strong>$6.50</strong><span>In stock</span></span></span>
-          </button>
-          <button class="ss-product" type="button" aria-pressed="false" data-name="Sea Salt Fries" data-price="$3.50" data-stock="Low stock" data-note="Golden fries with signature shack seasoning" data-emoji="🍟" aria-label="Sea Salt Fries, 3 dollars 50 cents, low stock">
-            <span class="ss-picture ss-fries" role="img" aria-label="Sea salt fries picture"><span>🍟</span><span class="ss-badge">Low stock</span></span>
-            <span class="ss-item-info"><span><h3>Sea Salt Fries</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍟</span><span>Golden fries, shack seasoning</span></p></span><span class="ss-price"><strong>$3.50</strong><span>Low stock</span></span></span>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Takis" data-price="$6.50" data-stock="In stock" data-note="Fuego rolled tortilla chips" data-image="images/takis.png" data-image-alt="Takis Fuego rolled tortilla chips" aria-label="Takis, 6 dollars 50 cents, in stock">
+            <span class="ss-picture" role="img" aria-label="Takis Fuego rolled tortilla chips"><img src="images/takis.png" alt=""></span>
+            <span class="ss-item-info"><span><h3>Takis</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/takis.png" alt=""><span>Fuego rolled tortilla chips</span></p></span><span class="ss-price"><strong>$6.50</strong><span>In stock</span></span></span>
           </button>
         </div>
       </section>
 
-      <section class="ss-category" aria-labelledby="ss-treats-heading">
-        <div class="ss-category-heading"><h2 id="ss-treats-heading">Drinks &amp; treats</h2></div>
+      <section class="ss-category" aria-labelledby="ss-candy-heading">
+        <div class="ss-category-heading"><h2 id="ss-candy-heading">Candy &amp; gummies</h2></div>
         <div class="ss-grid">
-          <button class="ss-product" type="button" aria-pressed="false" data-name="Fresh Lemonade" data-price="$3.00" data-stock="In stock" data-note="Bright, cold &amp; squeezed this morning" data-emoji="🍋" aria-label="Fresh Lemonade, 3 dollars, in stock">
-            <span class="ss-picture ss-lemonade" role="img" aria-label="Fresh lemonade picture"><span>🍋</span></span>
-            <span class="ss-item-info"><span><h3>Fresh Lemonade</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍋</span><span>Cold &amp; squeezed this morning</span></p></span><span class="ss-price"><strong>$3.00</strong><span>In stock</span></span></span>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="KitKat" data-price="$3.50" data-stock="Low stock" data-note="Crisp wafers in milk chocolate" data-image="images/kitkat.png" data-image-alt="KitKat chocolate wafer bar" aria-label="KitKat, 3 dollars 50 cents, low stock">
+            <span class="ss-picture" role="img" aria-label="KitKat chocolate wafer bar"><img src="images/kitkat.png" alt=""></span>
+            <span class="ss-item-info"><span><h3>KitKat</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/kitkat.png" alt=""><span>Crisp wafers in milk chocolate</span></p></span><span class="ss-price"><strong>$3.50</strong><span>Low stock</span></span></span>
           </button>
-          <button class="ss-product" type="button" aria-pressed="false" data-name="Chocolate Shake" data-price="$4.50" data-stock="In stock" data-note="Thick, creamy &amp; topped with whipped cream" data-emoji="🥤" aria-label="Chocolate Shake, 4 dollars 50 cents, in stock">
-            <span class="ss-picture ss-shake" role="img" aria-label="Chocolate shake picture"><span>🥤</span></span>
-            <span class="ss-item-info"><span><h3>Chocolate Shake</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🥤</span><span>Thick, creamy &amp; cold</span></p></span><span class="ss-price"><strong>$4.50</strong><span>In stock</span></span></span>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Reese's" data-price="$3.00" data-stock="In stock" data-note="Peanut butter cups in chocolate" data-image="images/reeses.png" data-image-alt="Reese's peanut butter cups" aria-label="Reese's, 3 dollars, in stock">
+            <span class="ss-picture" role="img" aria-label="Reese's peanut butter cups"><img src="images/reeses.png" alt=""></span>
+            <span class="ss-item-info"><span><h3>Reese's</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/reeses.png" alt=""><span>Peanut butter cups in chocolate</span></p></span><span class="ss-price"><strong>$3.00</strong><span>In stock</span></span></span>
           </button>
-          <button class="ss-product" type="button" aria-pressed="false" data-name="Chocolate Chip Cookie" data-price="$3.00" data-stock="In stock" data-note="Soft-baked, gooey &amp; still warm" data-emoji="🍪" aria-label="Chocolate Chip Cookie, 3 dollars, in stock">
-            <span class="ss-picture ss-cookie" role="img" aria-label="Chocolate chip cookie picture"><span>🍪</span></span>
-            <span class="ss-item-info"><span><h3>Chocolate Chip Cookie</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🍪</span><span>Warm, soft-baked &amp; gooey</span></p></span><span class="ss-price"><strong>$3.00</strong><span>In stock</span></span></span>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Skittles" data-price="$4.50" data-stock="In stock" data-note="Fruity candy pieces" data-image="images/skittles.webp" data-image-alt="Skittles fruity candy" aria-label="Skittles, 4 dollars 50 cents, in stock">
+            <span class="ss-picture" role="img" aria-label="Skittles fruity candy"><img src="images/skittles.webp" alt=""></span>
+            <span class="ss-item-info"><span><h3>Skittles</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/skittles.webp" alt=""><span>Fruity candy pieces</span></p></span><span class="ss-price"><strong>$4.50</strong><span>In stock</span></span></span>
           </button>
-          <button class="ss-product" type="button" aria-pressed="false" data-name="Grilled Cheese" data-price="$6.00" data-stock="Sold out" data-note="Three-cheese melt on buttery sourdough" data-emoji="🥪" aria-label="Grilled Cheese, 6 dollars, sold out">
-            <span class="ss-picture ss-cheese" role="img" aria-label="Grilled cheese picture"><span>🥪</span><span class="ss-badge">Sold out</span></span>
-            <span class="ss-item-info"><span><h3>Grilled Cheese</h3><p class="ss-item-note"><span class="ss-description-picture" aria-hidden="true">🥪</span><span>Three-cheese melt on sourdough</span></p></span><span class="ss-price"><strong>$6.00</strong><span>Sold out</span></span></span>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Sour Patch Kids" data-price="$3.00" data-stock="In stock" data-note="Soft and sour gummy candy" data-image="images/sour_patch_kids.png" data-image-alt="Sour Patch Kids gummy candy" aria-label="Sour Patch Kids, 3 dollars, in stock">
+            <span class="ss-picture" role="img" aria-label="Sour Patch Kids gummy candy"><img src="images/sour_patch_kids.png" alt=""></span>
+            <span class="ss-item-info"><span><h3>Sour Patch Kids</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/sour_patch_kids.png" alt=""><span>Soft and sour gummy candy</span></p></span><span class="ss-price"><strong>$3.00</strong><span>In stock</span></span></span>
+          </button>
+          <button class="ss-product" type="button" aria-pressed="false" data-name="Trolli" data-price="$6.00" data-stock="Sold out" data-note="Sour gummy crawlers" data-image="images/trolli.webp" data-image-alt="Trolli sour gummy crawlers" aria-label="Trolli, 6 dollars, sold out">
+            <span class="ss-picture" role="img" aria-label="Trolli sour gummy crawlers"><img src="images/trolli.webp" alt=""></span>
+            <span class="ss-item-info"><span><h3>Trolli</h3><p class="ss-item-note"><img class="ss-description-picture" src="images/trolli.webp" alt=""><span>Sour gummy crawlers</span></p></span><span class="ss-price"><strong>$6.00</strong><span>Sold out</span></span></span>
           </button>
         </div>
       </section>
 
       <section class="ss-detail" aria-live="polite" aria-label="Selected menu item details">
-        <div class="ss-detail-icon" aria-hidden="true"><span class="ss-detail-emoji">🍔</span></div>
-        <div><p class="ss-detail-label">Selected item</p><h2 class="ss-detail-name">Classic Cheeseburger</h2><p class="ss-detail-note">American cheese, crisp lettuce &amp; house sauce · <strong class="ss-detail-stock">In stock</strong></p></div>
+        <div class="ss-detail-icon" aria-hidden="true"><img class="ss-detail-image" src="images/doritos.png" alt=""></div>
+        <div><p class="ss-detail-label">Selected item</p><h2 class="ss-detail-name">Doritos</h2><p class="ss-detail-note">Cool Ranch tortilla chips · <strong class="ss-detail-stock">In stock</strong></p></div>
         <strong class="ss-detail-price">$8.50</strong>
       </section>
 
@@ -218,7 +211,7 @@
     (() => {
       const root = document.getElementById("snack-shack-menu");
       const products = root.querySelectorAll(".ss-product");
-      const detailEmoji = root.querySelector(".ss-detail-emoji");
+      const detailImage = root.querySelector(".ss-detail-image");
       const detailName = root.querySelector(".ss-detail-name");
       const detailNote = root.querySelector(".ss-detail-note");
       const detailStock = root.querySelector(".ss-detail-stock");
@@ -230,7 +223,8 @@
           item.classList.toggle("is-selected", selected);
           item.setAttribute("aria-pressed", String(selected));
         });
-        detailEmoji.textContent = product.dataset.emoji;
+        detailImage.src = product.dataset.image;
+        detailImage.alt = product.dataset.imageAlt;
         detailName.textContent = product.dataset.name;
         detailNote.firstChild.textContent = product.dataset.note + " · ";
         detailStock.textContent = product.dataset.stock;
