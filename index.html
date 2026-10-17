@@ -14,30 +14,25 @@
 <div id="snack-shack-menu">
   <style>
     #snack-shack-menu {
-      --ss-ink: #292623;
-      --ss-muted: #746d62;
-      --ss-wood: #f5ead8;
-      --ss-paper: #fffaf1;
-      --ss-tan: #caa979;
-      --ss-tan-dark: #a5804f;
-      --ss-red: #ae3e35;
-      --ss-red-dark: #88312c;
-      --ss-yellow: #f2c85e;
-      --ss-green: #48694c;
+      --ss-ink: #302c27;
+      --ss-muted: #766e63;
+      --ss-wood: #f3efe7;
+      --ss-paper: #fffdf8;
+      --ss-tan: #c7b79e;
+      --ss-tan-dark: #987b55;
+      --ss-red: #a44a3d;
+      --ss-red-dark: #7e342d;
+      --ss-yellow: #d9bd76;
+      --ss-green: #526348;
       --ss-display: "Fraunces", Georgia, serif;
       --ss-body: "DM Sans", "Trebuchet MS", sans-serif;
       width: 100%;
       overflow: visible;
       color: var(--ss-ink);
       font-family: var(--ss-body);
-      background-color: var(--ss-wood);
-      background-image:
-        repeating-linear-gradient(0deg, rgba(133, 93, 43, .045) 0 1px, transparent 1px 7px),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, .16) 0 2px, transparent 2px 22px),
-        radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, .45), transparent 35%);
-      border: 1px solid rgba(115, 75, 27, .17);
-      border-radius: 20px;
-      box-shadow: 0 18px 55px rgba(77, 49, 22, .15);
+      background: var(--ss-wood);
+      border: 1px solid #d8cdbb;
+      border-radius: 10px;
     }
 
     #snack-shack-menu * { box-sizing: border-box; }
@@ -45,8 +40,7 @@
     #snack-shack-menu .ss-icon { display: inline-block; font-family: "Material Symbols Rounded"; font-size: 1em; font-style: normal; font-weight: normal; line-height: 1; letter-spacing: normal; text-transform: none; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: "liga"; -webkit-font-smoothing: antialiased; font-feature-settings: "liga"; font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24; }
     #snack-shack-menu .ss-window { max-width: 1180px; margin: 0 auto; padding: 0 30px 30px; }
     #snack-shack-menu .ss-banner { position: relative; margin: 0 -30px; padding: 0 30px; background: var(--ss-paper); }
-    #snack-shack-menu .ss-awning { height: 48px; background: repeating-linear-gradient(90deg, var(--ss-red) 0 58px, #fff7e9 58px 116px); border-bottom: 4px solid rgba(114, 71, 28, .18); position: relative; }
-    #snack-shack-menu .ss-awning::after { position: absolute; right: 0; bottom: -16px; left: 0; height: 22px; content: ""; background: radial-gradient(24px 16px at 24px 0, transparent 23px, var(--ss-red) 24px) 0 0 / 48px 22px repeat-x; }
+    #snack-shack-menu .ss-awning { height: 48px; background: var(--ss-red); border-bottom: 8px solid var(--ss-paper); }
     #snack-shack-menu .ss-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1120px; margin: 0 auto; padding: 43px 23px 27px; }
     #snack-shack-menu .ss-brand { display: flex; align-items: center; gap: 12px; color: var(--ss-ink); }
     #snack-shack-menu .ss-mark { display: grid; width: 38px; height: 38px; place-items: center; color: #fff8ed; background: var(--ss-red); border: 2px solid var(--ss-red-dark); border-radius: 50%; transform: rotate(-8deg); }
@@ -65,35 +59,34 @@
     #snack-shack-menu .ss-category { margin-top: 26px; scroll-margin-top: 20px; }
     #snack-shack-menu .ss-category:first-of-type { margin-top: 0; }
     #snack-shack-menu .ss-category-heading { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
-    #snack-shack-menu .ss-category + .ss-category { margin-top: 48px; padding-top: 30px; border-top: 2px solid rgba(165, 128, 79, .38); }
+    #snack-shack-menu .ss-category + .ss-category { margin-top: 48px; padding-top: 30px; border-top: 2px solid #d0c2ac; }
     #snack-shack-menu .ss-category-heading h2 { display: flex; align-items: center; gap: 7px; margin: 0; color: var(--ss-ink); font-family: var(--ss-display); font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
     #snack-shack-menu .ss-category-heading h2 .ss-icon { color: var(--ss-red); font-size: 20px; }
     #snack-shack-menu .ss-category-heading span { color: var(--ss-muted); font-size: 11px; }
     #snack-shack-menu .ss-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
-    #snack-shack-menu .ss-product { display: block; min-width: 0; padding: 0; overflow: hidden; color: inherit; text-align: left; background: var(--ss-paper); border: 2px solid var(--ss-tan); border-radius: 8px; box-shadow: 0 5px 0 rgba(128, 89, 39, .08); cursor: pointer; }
-    #snack-shack-menu .ss-product:hover { border-color: var(--ss-red); box-shadow: 0 6px 0 rgba(128, 89, 39, .1); }
-    #snack-shack-menu .ss-product:focus-visible { outline: 3px solid #315fa8; outline-offset: 3px; }
-    #snack-shack-menu .ss-product.is-selected { border-color: var(--ss-red-dark); box-shadow: 0 0 0 3px rgba(174, 62, 53, .14), 0 6px 0 rgba(128, 89, 39, .1); }
+    #snack-shack-menu .ss-product { display: block; min-width: 0; padding: 0; overflow: hidden; color: inherit; text-align: left; background: var(--ss-paper); border: 1px solid var(--ss-tan); border-radius: 4px; cursor: pointer; }
+    #snack-shack-menu .ss-product:hover { border-color: var(--ss-red); }
+    #snack-shack-menu .ss-product:focus-visible { outline: 3px solid var(--ss-red); outline-offset: 3px; }
+    #snack-shack-menu .ss-product.is-selected { border: 2px solid var(--ss-red-dark); }
     #snack-shack-menu .ss-picture { display: grid; height: 178px; place-items: center; overflow: hidden; position: relative; background: #f3dfb8; line-height: 1; }
-    #snack-shack-menu .ss-picture::before { position: absolute; right: -22px; bottom: -54px; width: 142px; height: 142px; border: 1px solid rgba(255, 255, 255, .32); border-radius: 50%; content: ""; }
-    #snack-shack-menu .ss-picture img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; padding: 12px; object-fit: contain; filter: drop-shadow(0 7px 4px rgba(79, 49, 23, .2)); }
-    #snack-shack-menu .ss-badge { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 5px 7px; color: #fff8ee; background: var(--ss-red); border-radius: 4px; font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    #snack-shack-menu .ss-picture img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; padding: 12px; object-fit: contain; }
+    #snack-shack-menu .ss-badge { position: absolute; z-index: 2; top: 8px; left: 8px; padding: 5px 7px; color: #fffdf8; background: var(--ss-red); border-radius: 2px; font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
     #snack-shack-menu .ss-item-info { display: flex; min-height: 118px; flex-direction: column; padding: 14px 14px 12px; }
     #snack-shack-menu .ss-item-info h3 { margin: 0 0 4px; color: var(--ss-ink); font-family: var(--ss-display); font-size: 14px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
     #snack-shack-menu .ss-item-note { display: flex; align-items: center; gap: 5px; margin: 0; color: var(--ss-muted); font-size: 11px; line-height: 1.35; }
-    #snack-shack-menu .ss-description-picture { display: block; width: 21px; height: 21px; flex: 0 0 auto; object-fit: contain; border-radius: 4px; background: #f3dfb8; }
+    #snack-shack-menu .ss-description-picture { display: block; width: 21px; height: 21px; flex: 0 0 auto; object-fit: contain; border-radius: 2px; background: #f3dfb8; }
     #snack-shack-menu .ss-price { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 10px; }
     #snack-shack-menu .ss-price strong { color: var(--ss-red-dark); font-size: 16px; letter-spacing: -.04em; }
     #snack-shack-menu .ss-price span { color: var(--ss-green); font-size: 9px; font-weight: 800; text-transform: uppercase; }
-    #snack-shack-menu .ss-detail { display: grid; grid-template-columns: auto 1fr auto; gap: 15px; align-items: center; margin-top: 29px; padding: 17px 19px; background: rgba(255, 250, 241, .87); border: 2px solid var(--ss-tan); border-radius: 8px; }
-    #snack-shack-menu .ss-detail-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 7px; background: var(--ss-yellow); }
+    #snack-shack-menu .ss-detail { display: grid; grid-template-columns: auto 1fr auto; gap: 15px; align-items: center; margin-top: 29px; padding: 17px 19px; background: var(--ss-paper); border: 1px solid var(--ss-tan); border-radius: 4px; }
+    #snack-shack-menu .ss-detail-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 3px; background: var(--ss-yellow); }
     #snack-shack-menu .ss-detail-icon img { display: block; width: 100%; height: 100%; padding: 4px; object-fit: contain; }
     #snack-shack-menu .ss-detail-label { margin: 0 0 3px; color: var(--ss-red-dark); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     #snack-shack-menu .ss-detail-name { margin: 0; color: var(--ss-ink); font-family: var(--ss-display); font-size: 16px; font-weight: 700; }
     #snack-shack-menu .ss-detail-note { margin: 3px 0 0; color: var(--ss-muted); font-size: 11px; }
     #snack-shack-menu .ss-detail-price { color: var(--ss-red-dark); font-size: 21px; font-weight: 900; white-space: nowrap; }
     #snack-shack-menu .ss-info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
-    #snack-shack-menu .ss-info-box { padding: 17px 18px; background: rgba(255, 250, 241, .75); border-top: 4px solid var(--ss-red); border-radius: 6px; }
+    #snack-shack-menu .ss-info-box { padding: 17px 18px; background: var(--ss-paper); border: 1px solid var(--ss-tan); border-top: 4px solid var(--ss-red); border-radius: 4px; }
     #snack-shack-menu .ss-info-box h2 { display: flex; align-items: center; gap: 6px; margin: 0 0 5px; color: var(--ss-ink); font-family: var(--ss-display); font-size: 14px; font-weight: 700; }
     #snack-shack-menu .ss-info-box h2 .ss-icon { color: var(--ss-red); font-size: 18px; }
     #snack-shack-menu .ss-info-box p { margin: 0; color: var(--ss-muted); font-size: 12px; line-height: 1.45; }
